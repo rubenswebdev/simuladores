@@ -1,0 +1,10 @@
+{
+  "extends": "plugin:angular/johnpapa",
+  "rules": {
+      "func-names": ["error", "never"],
+      "no-console":0,
+      "no-underscore-dangle": 0,
+      "no-await-in-loop": 0,
+      "jsx-a11y/href-no-hash": "off"
+  }
+}

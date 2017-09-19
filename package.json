@@ -1,0 +1,24 @@
+{
+  "name": "simuladores",
+  "version": "0.0.1",
+  "description": "Simuladores para curso master class do Gustavo Cerbasi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/drakewolf/simuladores.git"
+  },
+  "author": "Rubens Fernandes",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/drakewolf/simuladores#readme",
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-angular": "^3.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0"
+  }
+}
