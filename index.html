@@ -70,8 +70,8 @@
                         </div>
                         <div class="form-group">
                             <label>Juros:
-                                <a class="acao" ng-click="vm.form.juros = vm.converterMensal(vm.indicadores.selic);vm.form.imposto = 0.15;vm.calcular()">Selic</a> /
-                                <a class="acao" ng-click="vm.form.juros = vm.indicadores.poupanca;vm.form.imposto = 0;vm.calcular()">Poupança</a>
+                                <a class="acao" ng-click="vm.form.juros = vm.converterMensal(vm.indicadores.selic);vm.addImposto = true;vm.calcular()">Selic</a> /
+                                <a class="acao" ng-click="vm.form.juros = vm.indicadores.poupanca;vm.form.imposto = 0;vm.addImposto = false;vm.calcular()">Poupança</a>
                             </label>
                             <input type="text" ng-change="vm.calcular()" ng-model="vm.form.juros" class="form-control" placeholder="Juros" ui-percentage-mask>
                         </div>
@@ -79,6 +79,15 @@
                             <label>Inflação <a class="acao" ng-click="vm.form.inflacao = vm.indicadores.ipca;vm.calcular()">IPCA</a></label>
                             <input type="text" ng-change="vm.calcular()" ng-model="vm.form.inflacao" class="form-control" placeholder="Inflação" ui-percentage-mask>
                         </div>
+
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="vm.addImposto">
+                                IR
+                            </label>
+                        </div>
+
 
                         <div class="form-group">
                             <label>Imposto de renda</label>

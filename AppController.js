@@ -2,6 +2,8 @@
   angular.module('app').controller('AppController', function () {
     var vm = this;
 
+    vm.addImposto = true;
+
     vm.indicadores = {};
     vm.indicadores.selic = 0.0825; //anual
     vm.indicadores.cdi = 0.0814; //anual
@@ -15,10 +17,11 @@
     vm.form.valorExistente = 0;
     vm.form.deposito = 200;
     vm.form.meses = 360;
-    vm.form.juros = vm.indicadores.poupanca;
+
+    //vm.form.juros = vm.indicadores.poupanca;
     vm.form.juros = Math.round(converterMensal(vm.indicadores.selic) * 100 * 100) / 100 / 100;
     vm.form.inflacao = vm.indicadores.ipca;
-    vm.form.imposto = 0.15;
+    vm.form.imposto = 0;
 
     vm.converterMensal = converterMensal;
 
@@ -57,20 +60,21 @@
       vm.form.jurosEfetivo = (1 + vm.form.juros * (1 - vm.form.imposto)) / (1 + vm.form.inflacao) - 1;
       vm.form.resultado = -FV(vm.form.jurosEfetivo, vm.form.meses, vm.form.deposito, vm.form.valorExistente, 0);
       vm.form.anos = vm.form.meses / 12;
+      vm.form.imposto = 0;
 
-      if (vm.form.meses <= 6) {
+      if (vm.addImposto && vm.form.meses <= 6) {
         vm.form.imposto = 0.225;
       }
 
-      if (vm.form.meses > 6 && vm.form.meses <= 12) {
+      if (vm.addImposto && vm.form.meses > 6 && vm.form.meses <= 12) {
         vm.form.imposto = 0.20;
       }
 
-      if (vm.form.meses > 12 && vm.form.meses <= 24) {
+      if (vm.addImposto && vm.form.meses > 12 && vm.form.meses <= 24) {
         vm.form.imposto = 0.175;
       }
 
-      if (vm.form.meses > 24) {
+      if (vm.addImposto && vm.form.meses > 24) {
         vm.form.imposto = 0.15;
       }
 
