@@ -5,9 +5,9 @@
     vm.addImposto = true;
 
     vm.indicadores = {};
-    vm.indicadores.selic = 0.0825; //anual
-    vm.indicadores.cdi = 0.0814; //anual
-    vm.indicadores.ipca = 0.0019; //mensal
+    vm.indicadores.selic = 0.0750; //anual
+    vm.indicadores.cdi = 0.0739; //anual
+    vm.indicadores.ipca = 0.0016; //mensal
     vm.indicadores.tr = 0.0000; //mensal atualizado diariamente
 
     vm.indicadores.poupanca = Math.round((converterMensal(vm.indicadores.selic * 0.7) + vm.indicadores.tr) * 100 * 100) / 100 / 100;
