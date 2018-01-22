@@ -6,19 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/drakewolf/simuladores.git"
-  },
+  "repository": "git+ssh://git@bitbucket.org/drakewolf/simuladores.git",
   "author": "Rubens Fernandes",
   "license": "ISC",
   "homepage": "https://bitbucket.org/drakewolf/simuladores#readme",
-  "devDependencies": {
-    "eslint": "^4.7.1",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-angular": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.3.0"
+  "dependencies": {
+    "angular": "^1.6.8",
+    "angular-br-filters": "^0.7.0",
+    "angular-input-masks": "^4.1.0",
+    "bootstrap": "^4.0.0",
+    "financejs": "^4.1.0",
+    "jquery": "^3.3.1"
   }
 }

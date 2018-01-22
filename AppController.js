@@ -5,9 +5,9 @@
     vm.addImposto = true;
 
     vm.indicadores = {};
-    vm.indicadores.selic = 0.0750; //anual
-    vm.indicadores.cdi = 0.0739; //anual
-    vm.indicadores.ipca = 0.0016; //mensal
+    vm.indicadores.selic = 0.0700; //anual
+    vm.indicadores.cdi = 0.0689; //anual
+    vm.indicadores.ipca = 0.0221; //mensal
     vm.indicadores.tr = 0.0000; //mensal atualizado diariamente
 
     vm.indicadores.poupanca = Math.round((converterMensal(vm.indicadores.selic * 0.7) + vm.indicadores.tr) * 100 * 100) / 100 / 100;
@@ -24,9 +24,18 @@
     vm.form.imposto = 0;
 
     vm.converterMensal = converterMensal;
+    vm.calcularCDI = calcularCDI;
+
+    function calcularCDI() {
+      vm.form.porcetagemCDI = Math.round(converterMensal(vm.indicadores.selic * vm.form.jurosCDI) * 100 * 100) / 100 / 100
+    }
 
     function converterMensal(juros) {
       return (Math.pow((1+((juros * 100)/100)), (1/12))-1);
+    }
+
+    function arredonda(valor) {
+      return Math.round(converterMensal(valor) * 100 * 100) / 100 / 100
     }
 
     /*
@@ -42,7 +51,7 @@
     */
 
     /* Formula para juros compostos
-      ex: CDB (10%) com 120%
+      ex: CDB (7,39%) com 120%
       ((1+(i/100))^(1/12))-1
       ((1+(120/100))^(1/12) )-1
       (1,12^0,08)-1 = 0,0095. Multiplique este resultado por 100 e dará a taxa equivalente (0,95%).
@@ -77,7 +86,6 @@
       if (vm.addImposto && vm.form.meses > 24) {
         vm.form.imposto = 0.15;
       }
-
     }
 
     function FV(jurosEfetivo, quantiaMeses, depositoMensal, valorExistente, type) {

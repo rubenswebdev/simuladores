@@ -6,7 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Simulador</title>
 
-        <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+            crossorigin="anonymous">
+
         <link rel="stylesheet" href="css/custom.css">
     </head>
     <body ng-app="app" ng-controller="AppController as vm">
@@ -43,7 +50,7 @@
                                 <td>{{vm.indicadores.poupanca | percentage}} a.m</td>
                                 <td>{{vm.indicadores.selic | percentage}} a.a</td>
                                 <td>{{vm.indicadores.cdi | percentage}} a.a</td>
-                                <td>{{vm.indicadores.ipca | percentage}} Agosto</td>
+                                <td>{{vm.indicadores.ipca | percentage}} 2017</td>
                             </tr>
                             <tr>
                                 <td colspan="5">
@@ -54,6 +61,7 @@
                         </tbody>
                     </table>
                 </div>
+                <pre>{{vm.form | json}}</pre>
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <form role="form">
                         <div class="form-group">
@@ -116,6 +124,15 @@
                         Renda: {{(vm.form.jurosEfetivo * vm.form.resultado) | finance:true:2}}
                     </div>
 
+                    <div class="col-md-12">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>Porcetagem do CDI {{vm.form.porcetagemCDI | percentage}}</label>
+                                <input type="text" ng-change="vm.calcularCDI()" ng-model="vm.form.jurosCDI" class="form-control" placeholder="Juros CDI" ui-percentage-mask>
+                            </div>
+                        </form>
+                    </div>
+
 <!-- <pre>
 {{vm.form | json}}
 {{vm.indicadores | json}}
@@ -126,9 +143,9 @@
         </div>
 
         <!-- jQuery -->
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
 
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="js/angular-locale_pt-br.js"></script>
